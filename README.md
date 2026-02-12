@@ -1,141 +1,78 @@
-# 🔍 _EL IMPOSTOR_ 🕵️
+# 🔍 EL IMPOSTOR 🕵️
 
-_Juego interactivo de deducción social inspirado en dinámicas de impostor, desarrollado como proyecto académico utilizando tecnologías web._
+Juego interactivo de deducción social inspirado en dinámicas de impostor, desarrollado como proyecto académico utilizando tecnologías web.
 
-## _Descripción del Proyecto_
+---
 
-***El Impostor** es un juego multijugador local en el que los participantes reciben una palabra secreta perteneciente a una categoría específica, excepto uno de ellos: **el impostor:***
+## 📝 Descripción del Proyecto
 
-_El objetivo de los jugadores es descubrir quién es el impostor mediante una ronda de palabras y una votación final, mientras que el impostor debe intentar pasar desapercibido._
+**El Impostor** es un juego multijugador local en el que los participantes reciben una palabra secreta perteneciente a una categoría específica, excepto uno de ellos: **el impostor**. 
 
+A diferencia de versiones básicas, este proyecto incluye un **sistema de competencia por rondas**, donde los jugadores acumulan puntos para coronar a un ganador final después de una serie de partidas.
 
-##  _¿Cómo se juega?_
+---
 
-_1. Se ingresan entre **2 y 10 jugadores**._
-_2. Se selecciona una **categoría**._
-_3. El sistema asigna una **palabra secreta** a todos los jugadores excepto al impostor._
-_4. Cada jugador ve su palabra de forma individual._
-_5. Se inicia un **temporizador** para la ronda de juego._
-_6. Al finalizar el tiempo, se realiza una **votación**._
-_7. El juego muestra si el impostor fue descubierto o no._
+## 🎮 ¿Cómo se juega?
 
+1. **Registro:** Se ingresan entre **2 y 10 jugadores**.
+2. **Categoría:** Se selecciona una categoría temática.
+3. **Reparto:** El sistema asigna una palabra secreta a todos excepto a un impostor elegido al azar.
+4. **Privacidad:** Cada jugador toca la pantalla para ver su rol con un efecto de desenfoque por seguridad.
+5. **Debate y Tiempo:** Se inicia un **temporizador de 2:00 minutos**. Cada jugador dice una palabra relacionada para demostrar que conoce la palabra secreta.
+6. **Votación:** Al finalizar el tiempo, el grupo vota por quién creen que es el impostor.
+7. **Puntuación Acumulada:** - Si los inocentes descubren al impostor: **+1 punto** para cada inocente.
+   - Si el impostor escapa: **+2 puntos** para el impostor.
+8. **Ciclo de Rondas:** El juego se repite automáticamente durante **3 rondas**.
+9. **Ganador Final:** Al terminar todas las rondas, el sistema calcula quién tuvo el mejor desempeño y lo proclama campeón.
 
-## _Funcionalidades Principales_
+---
 
-- _Asignación aleatoria de impostor_
-- _Categorías con palabras dinámicas_
-- _Control de turnos por jugador_
-- _Temporizador de juego_
-- _Sistema de votación_
-- :Música de fondo_
-- _Diseño moderno y elegante tipo tarjetas_
-- _Interfaz responsive y animaciones suaves_
+## ✨ Funcionalidades Principales
 
+* **Sistema de Rondas:** Lógica integrada para jugar múltiples partidas (3 rondas por defecto).
+* **Tabla de Puntuación Real:** Seguimiento dinámico de puntos que no se borran entre rondas.
+* **Temporizador Inteligente:** Cambia a color rojo y activa una animación de alerta cuando quedan menos de 10 segundos.
+* **Control de Audio:** Música de fondo con barra de volumen ajustable en tiempo real.
+* **Seguridad Visual:** Efecto *blur* en las palabras secretas para evitar que otros jugadores las vean.
+* **Diseño Moderno:** Interfaz tipo tarjetas, colores degradados y totalmente responsiva.
 
-## _Tecnologías Utilizadas_
+---
 
-- ***HTML5***
-- ***CSS3***
-- ***JavaScript (Vanilla JS)***
+## 🛠️ Tecnologías Utilizadas
 
+* **HTML5:** Estructura de pantallas y secciones.
+* **CSS3:** Estilos, animaciones de transición y diseño "Dark Mode".
+* **JavaScript (Vanilla JS):** Motor lógico, manejo del DOM, sistema de puntos y control de tiempos.
 
-## _Estructura del Proyecto_
+---
 
-```python
-El-Impostor
+## 📂 Estructura del Proyecto
+
+```text
+El-Impostor/
 │
-├─ index.html → Estructura del juego
-├─ style.css → Diseño y estilos
-├─ script.js → Lógica del juego
-├─ data/
-│ └─ palabras.js → Palabras por categoría
-├─ assets/
-│ └─ musica.mp3 → Música de fondo
-└─ README.md → Documentación del proyecto
-```
+├─ index.html          # Estructura base y control de secciones (screens)
+├─ style.css           # Estética, animaciones y efectos visuales
+├─ script.js           # Cerebro del juego: Rondas, puntos y lógica de votos
+├─ palabras.js         # Diccionario de categorías (Comida, Lugares, Animales)
+└─ publics/            # Carpeta de recursos multimedia y estáticos
+   └─ musica.mp3       # Ambientación sonora del juego
+⚙️ Descripción de Archivos
+index.html: Es el esqueleto del juego. Contiene todas las pantallas (.screen) organizadas en una sola página (SPA). Aquí se vinculan los estilos, la música y los scripts.
 
-## _Estructura y Descripción de Archivos_
+style.css: Define la estética "Dark Mode". Incluye las animaciones de las tarjetas, el efecto de desenfoque (blur) para la privacidad y los colores vibrantes para las alertas del temporizador.
 
- ###  _index.html_
+script.js: El motor principal. Contiene la lógica de asignación de roles, el sistema de votación, el temporizador y el control de flujo entre rondas y puntuaciones acumuladas.
 
-_Es el archivo principal del proyecto. Contiene la estructura base del juego y define todas las pantallas que se muestran durante la partida._
+palabras.js: Actúa como la base de datos del juego. Contiene los listados de palabras categorizados por temas (Comida, Animales y Lugares).
 
-_En este archivo se encuentran:_
+publics/: Carpeta destinada a recursos estáticos. Centraliza archivos multimedia como musica.mp3, que proporciona la ambientación sonora durante la partida.
 
-- _Las distintas secciones del juego (agradecimientos, inicio, jugadores, categorías, palabra secreta, temporizador, votación y resultado)._
-- _El elemento <audio> para la música de fondo._
+👥 Créditos del Proyecto
+Desarrollador: Gabriela Lopez
 
-  ### _La conexión con los archivos externos:_
-  
-- _style.css para los estilos._
-- _script.js para la lógica del juego._
-- _data/palabras.js para las palabras por categoría._
+Música: Victor Zerpa
 
-_Este archivo no contiene lógica compleja, sino que sirve como base visual y estructural del proyecto._
+Arte y Animación: Arianna Escalona & Elian Garcia
 
-##  _style.css_
-
-_Archivo encargado del diseño visual y la estética del juego._
-
-_Incluye:_
-
-- _Reset de estilos para asegurar consistencia entre navegadores._
-- _Diseño moderno tipo tarjetas centradas._
-- _Paleta de colores oscura con gradientes._
-- _Animaciones suaves de entrada entre pantallas._
-
-_Estilos para:_
-
-- _Botones_
-- _Inputs_
-- _Listas de jugadores_
-- _Palabra secreta con efecto blur_
-- _Temporizador_
-- _Control visual de volumen_
-
-_El objetivo del archivo es ofrecer una experiencia visual elegante, limpia y moderna, sin afectar la funcionalidad del juego._
-
-## _script.js_
-
-_Archivo principal de lógica del juego, escrito en JavaScript puro._
-
-_Se encarga de:_
-
-- _Controlar la navegación entre pantallas._
-- _Gestionar la lista de jugadores (agregar y eliminar)._
-
-_Seleccionar aleatoriamente:_
-
-- _La palabra secreta._
-- _El impostor._
-- _Controlar los turnos de cada jugador._
-- _Evitar que se vea la palabra antes de tiempo._
-- _Manejar el temporizador de juego._
-- _Procesar la votación final._
-- _Mostrar el resultado (si el impostor fue descubierto o no)._
-- _Reproducir la música de fondo tras la primera interacción del usuario._
-
-_Todo el código está organizado por secciones para facilitar su lectura y mantenimiento._
-
-## _data/_
-
-_Esta carpeta esta destinada a almacenar información estática del juego._
-
-##  _palabras.js_
-
-_Contiene un objeto con listas de palabras organizadas por categorías, por ejemplo:_
-
-- - _Comida_
-- - _Lugares_
-- - _Animales_
-
-_Esto permite:_
-
-_Ampliar fácilmente el juego._
-_Agregar nuevas categorías o palabras sin modificar la lógica principal._
-
-## _assets/_
-
-_Esta carpeta de los recursos multimedia del proyecto. Lo que incluye:_
-
-_Archivo de música de fondo (musica.mp3)._
+Mentoría: Prof. Gabriel Baute
